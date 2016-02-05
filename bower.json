@@ -1,0 +1,18 @@
+{
+  "name": "pictureAlbum",
+  "description": "",
+  "main": "",
+  "authors": [
+    "MaltbyRL <RLMaltby@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -3,9 +3,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: black;
   color: white;
-  
+
 }
 
 a {
   color: #00B7FF;
+}
+.container {
+  background-image: url('http://www.simplyheaven.org/files/QuickSiteImages/banner.jpg');
 }
