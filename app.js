@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', require('./routes/users'));
 app.use('/album', require('./routes/album'));
-app.use('/image', require('./routes/image'));
+// app.use('/image', require('./routes/image'));
 app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler
@@ -37,6 +37,42 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+mongoose.connect('mongodb://localhost/imageupload', function(err) {
+  if(err) return console.log("err:" , err);
+  var filename = "matrix.png"
+
+  fs.readFile("matrix.png", function(err, PIC) {
+    if(err) console.log("err: ", err);
+    var ext = filename.match(/\.\w+$/)[0] || '';
+    var key = uuid.v1() + ext;
+
+    var params = {
+      Bucket: process.env.AWS_BUCKET,
+      Key: filename,
+      Body:  PIC //data buffer
+    };
+
+    s3.putObject(params, function(err, data) {
+      if(err) return console.log("err: ", err);
+      console.log("data: ", data);
+      var url = process.env.AWS_URL + process.env.AWS_BUCKET + '/' + key;
+      console.log("url: ", url);
+
+      var image = new Image({
+        filename: filename,
+        url: url
+      });
+
+      image.save(function() {
+        mongoose.disconnect();
+      })
+
+    });
+
+      console.log("err: ", err);
+      console.log('callback:', PIC)
+  });
+});
 // error handlers
 
 // development error handler

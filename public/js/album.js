@@ -2,18 +2,15 @@
 $(document).ready(init)
 
 function init(){
-  $('form').on('submit', submitPic);
+  console.log('Initiated')
 }
-function submitPic(data){
-  var picTarget = data.delegateTarget.firstElementChild.value
-  console.log("data: ",picTarget)
-  debugger
-  $.post('/album/albumpic', picTarget)
-  .success(function() {
-    location.href = '/login';
-  })
-  .fail(function(err) {
-    alert('Error.  Check console.');
-    console.log('errr:', err);
-  });
+
+$.post('/users/changepw', {email: email, oldPassword: oldpassword, newPassword: newpassword})
+.success(function(data) {
+  location.href = '/';
+})
+.fail(function(err) {
+  alert('Error.  Check console.');
+  console.log('err:', err);
+});
 }

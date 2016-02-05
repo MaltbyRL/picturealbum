@@ -15,11 +15,11 @@ var s3 = new aws.S3();
 var fs = require('fs');
 
 
-var Image = mongoose.model('Image' , {
-  filename: String,
-  url: String
-});
-
+// var Image = mongoose.model('Image' , {
+//   filename: String,
+//   url: String
+// });
+//
 
 var authMiddleware = require('../config/auth');
 
@@ -67,9 +67,13 @@ router.get('/logout', function(req, res, next) {
   // $('login').show()
 });
 
+
 router.post('/album', function(req, res) {
-  res.send('posted')
+  console.log("req.files:");
+  // console.log("res:", res);
+  res.render('album')
 })
+
 
 router.post('/changepw', function(req, res, next) {
   console.log('changepw');
@@ -91,7 +95,6 @@ router.post('/changepw', function(req, res, next) {
     }
   });
 });
-
 
 module.exports = router;
 

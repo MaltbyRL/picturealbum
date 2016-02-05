@@ -11,4 +11,8 @@ a {
 }
 .container {
   background-image: url('http://www.simplyheaven.org/files/QuickSiteImages/banner.jpg');
+  /*background-image: url('https://s3-us-west-1.amazonaws.com/richards-better-bucket-bereua/c02bfb00-cc3c-11e5-ae59-43cc6839b257');*/
+}
+#containing {
+  width: 60vw;
 }
