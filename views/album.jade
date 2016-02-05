@@ -1,0 +1,17 @@
+extends layout
+block content
+  h1 Picture Heaven
+  .background
+    .row
+      .col-xs-3
+      .col-xs-6(style="font-weight: bolder; font-size: 2.2vw;") 
+      .col-xs-3 
+  .secondBackground
+    .row
+      .col-xs-12.upload
+        form(action='/album', method='post', enctype='multipart/form-data')
+          input(type='file', name='images', id='image', multiple=true)
+          button(style="background-color: lightblue;") Submit
+
+block scripts
+  script(src="/js/album.js")

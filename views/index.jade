@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 Picture Heaven
+  html
+  body
+    
+      .background
+        .row
+          .col-xs-3
+          .col-xs-6(style="font-weight: bolder; font-size: 2.2vw;") 
+          .col-xs-3 
+            button#next(style="background-color: red") My Album
+      .secondBackground
+        .row
+          .col-xs-12.currentQuestion 
+          .postedQuestion
+        .row
+          .col-xs-3#first ......
+          .col-xs-3#second ......
+          .col-xs-3#third ......
+          .col-xs-3#fourth ......
+        .row
+          .col-xs-3.answer#one(style='border: 2px solid black')
+          .col-xs-3.answer#two(style='border: 2px solid black')  
+          .col-xs-3.answer#three(style='border: 2px solid black')
+          .col-xs-3.answer#four(style='border: 2px solid black')
+        .row#answerRows
+          .col-xs-12#answerResponse(style="color: orange; font-size: 4vw;")
+      
+block scripts
+  //- script(src='/lib/firebase/firebase.js')
+  script(src="/js/index.js")
