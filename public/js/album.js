@@ -8,7 +8,7 @@ function submitPic(data){
   var picTarget = data.delegateTarget.firstElementChild.value
   console.log("data: ",picTarget)
   debugger
-  $.post('/users/albumpic', picTarget)
+  $.post('/album/albumpic', picTarget)
   .success(function() {
     location.href = '/login';
   })
