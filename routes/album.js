@@ -3,7 +3,7 @@
 var Firebase = require('firebase');
 var express = require('express');
 var router = express.Router();
-require('dotenv').config();
+
 var aws = require('aws-sdk');
 var uuid = require('node-uuid');
 var s3 = new aws.S3();

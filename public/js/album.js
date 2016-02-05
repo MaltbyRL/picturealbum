@@ -5,12 +5,15 @@ function init(){
   console.log('Initiated')
 }
 
-$.post('/users/changepw', {email: email, oldPassword: oldpassword, newPassword: newpassword})
+
+$.get('/album', function(req, res){
+  console.log("resssed: ", res)
+})
 .success(function(data) {
-  location.href = '/';
+  console.log("datas's: ", data)
+  res.send('sended')
 })
 .fail(function(err) {
   alert('Error.  Check console.');
   console.log('err:', err);
 });
-}

@@ -7,7 +7,7 @@ var multer = require('multer');
 var upload = multer({
   storage: multer.memoryStorage()
 });
-require('dotenv').config();
+
 var aws = require('aws-sdk');
 var mongoose = require('mongoose');
 var uuid = require('node-uuid');
