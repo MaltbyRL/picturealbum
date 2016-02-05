@@ -30,14 +30,14 @@ router.get('/', function(req, res, next){
 });
 
 
-router.post('/', upload.array('images'), function(req, res) {
+router.post('/', upload.single('image'), function(req, res) {
 
-  console.log("req.files:", req.files);
+  console.log("req.files:", req.file);
   var key = uuid.v1();
   var params = {
     Bucket:process.env.AWS_BUCKET,
     Key:key,
-    Body: req.files[0].buffer
+    Body: req.file.buffer
   }
   s3.putObject(params, function(err, data) {
     if(err) return console.log("errr: ", err)
